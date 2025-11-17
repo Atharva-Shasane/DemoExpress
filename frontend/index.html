@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Notes Frontend</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f3f6fb; padding: 20px; }
+    input, textarea { width: 100%; padding: 8px; margin: 6px 0; }
+    .card { background: white; padding: 12px; border-radius: 6px; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <h2>Notes App (Frontend)</h2>
+
+  <div>
+    <input id="title" placeholder="Note title" />
+    <textarea id="body" rows="4" placeholder="Note body (optional)"></textarea>
+    <button id="add">Add Note</button>
+  </div>
+
+  <h3>Saved notes</h3>
+  <div id="noteslist"></div>
+
+  <script>
+    const API = 'http://localhost:5000';
+
+    async function fetchNotes() {
+      const res = await fetch(API + '/notes');
+      const data = await res.json();
+      const list = document.getElementById('noteslist');
+      list.innerHTML = data.notes.map(n =>
+        `<div class="card"><strong>${n.title}</strong><div>${n.body}</div></div>`
+      ).join('') || '<em>No notes yet</em>';
+    }
+
+    document.getElementById('add').addEventListener('click', async () => {
+      const title = document.getElementById('title').value.trim();
+      const body = document.getElementById('body').value.trim();
+      if (!title) { alert('Enter title'); return; }
+      await fetch(API + '/notes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, body })
+      });
+      document.getElementById('title').value = '';
+      document.getElementById('body').value = '';
+      fetchNotes();
+    });
+
+    fetchNotes();
+  </script>
+</body>
+</html>
