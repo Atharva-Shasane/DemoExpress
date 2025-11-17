@@ -9,7 +9,7 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "Atharva Shasane",
+  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
