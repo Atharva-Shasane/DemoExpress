@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1763369960359,
+    "name": "Atharva Shasane",
+    "rollNo": "59",
+    "universityId": "2234006",
+    "bloodGroup": "O+",
+    "address": "Borivali",
+    "year": "3rd",
+    "department": "IT"
+  },
+  {
+    "id": 1763370268134,
+    "name": "Janelle",
+    "rollNo": "17",
+    "universityId": "1234001",
+    "bloodGroup": "AB+",
+    "address": "Naigoan",
+    "year": "3rd",
+    "department": "IT"
+  },
+  {
+    "id": 1763371093160,
+    "name": "Purvi",
+    "rollNo": "60",
+    "universityId": "123",
+    "bloodGroup": "A+",
+    "address": "Palghar",
+    "year": "3rd",
+    "department": "IT"
+  }
+]
